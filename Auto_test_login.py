@@ -1,4 +1,4 @@
-from selene import browser
+from selene import browser, have
 import pytest
 
 
@@ -14,4 +14,6 @@ def brow():
 
 # Ввод данных
 def test_login(brow):
-    browser.element('.login-form [name=email]').type('qagurubot@gmail.com')
+    browser.element('.login-form [name=email]').set_value('qagurubot@gmail.com')
+    browser.element('.login-form [name=password]').set_value('qagurupassword').press_enter()
+    browser.element('.main-header_login').click()
